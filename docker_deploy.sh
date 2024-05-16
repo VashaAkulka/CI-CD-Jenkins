@@ -1,5 +1,6 @@
 #!/bin/bash
 
+chmod +x docker_deploy.sh
 docker stop spring_application || true
 docker rm spring_application || true
 docker build -t application .
