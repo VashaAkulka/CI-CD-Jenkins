@@ -1,13 +1,15 @@
-Started by GitHub push by VashaAkulka
+Started by user Сермяжко Виктор Максимович
+
 Running as SYSTEM
-Building in workspace /var/jenkins_home/workspace/java_app
+Building in workspace /var/jenkins_home/workspace/spring_boot_application
 [WS-CLEANUP] Deleting project workspace...
 [WS-CLEANUP] Deferred wipeout is used...
+[WS-CLEANUP] Done
 The recommended git tool is: NONE
 No credentials specified
 Cloning the remote Git repository
 Cloning repository https://github.com/VashaAkulka/CI-CD-Jenkins.git
- > git init /var/jenkins_home/workspace/java_app # timeout=10
+ > git init /var/jenkins_home/workspace/spring_boot_application # timeout=10
 Fetching upstream changes from https://github.com/VashaAkulka/CI-CD-Jenkins.git
  > git --version # timeout=10
  > git --version # 'git version 2.39.2'
@@ -16,99 +18,86 @@ Fetching upstream changes from https://github.com/VashaAkulka/CI-CD-Jenkins.git
  > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
 Avoid second fetch
  > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
-Checking out Revision 1e6ffe709a1c365a36b1cc51491008a6c993b7a2 (refs/remotes/origin/master)
+Checking out Revision 6ec323942f429375a507bb23a7df139ebe067ca3 (refs/remotes/origin/master)
  > git config core.sparsecheckout # timeout=10
- > git checkout -f 1e6ffe709a1c365a36b1cc51491008a6c993b7a2 # timeout=10
-Commit message: "check github webhook one more time"
-First time build. Skipping changelog.
+ > git checkout -f 6ec323942f429375a507bb23a7df139ebe067ca3 # timeout=10
+Commit message: "Tomcat container"
+ > git rev-list --no-walk 6ec323942f429375a507bb23a7df139ebe067ca3 # timeout=10
 [Gradle] - Launching build.
-Unpacking https://services.gradle.org/distributions/gradle-8.7-bin.zip to /var/jenkins_home/tools/hudson.plugins.gradle.GradleInstallation/Gradle on Jenkins
-[java_app] $ /var/jenkins_home/tools/hudson.plugins.gradle.GradleInstallation/Gradle/bin/gradle build
-
-Welcome to Gradle 8.7!
-
-Here are the highlights of this release:
- - Compiling and testing with Java 22
- - Cacheable Groovy script compilation
- - New methods in lazy collection properties
-
-For more details see https://docs.gradle.org/8.7/release-notes.html
-
-Starting a Gradle Daemon (subsequent builds will be faster)
+[spring_boot_application] $ /var/jenkins_home/tools/hudson.plugins.gradle.GradleInstallation/Gradle/bin/gradle test
 > Task :compileJava
 > Task :processResources
 > Task :classes
-> Task :resolveMainClassName
-> Task :bootJar
-> Task :jar
-> Task :assemble
 > Task :compileTestJava
 > Task :processTestResources NO-SOURCE
 > Task :testClasses
 > Task :test
-> Task :check
-> Task :build
 
-BUILD SUCCESSFUL in 27s
-7 actionable tasks: 7 executed
+BUILD SUCCESSFUL in 2s
+4 actionable tasks: 4 executed
 Build step 'Invoke Gradle script' changed build result to SUCCESS
 [Gradle] - Launching build.
-[java_app] $ /var/jenkins_home/tools/hudson.plugins.gradle.GradleInstallation/Gradle/bin/gradle test
+[spring_boot_application] $ /var/jenkins_home/tools/hudson.plugins.gradle.GradleInstallation/Gradle/bin/gradle build
 > Task :compileJava UP-TO-DATE
 > Task :processResources UP-TO-DATE
 > Task :classes UP-TO-DATE
+> Task :resolveMainClassName
+> Task :bootWar
+> Task :war
+> Task :assemble
 > Task :compileTestJava UP-TO-DATE
 > Task :processTestResources NO-SOURCE
 > Task :testClasses UP-TO-DATE
 > Task :test UP-TO-DATE
+> Task :check UP-TO-DATE
+> Task :build
 
-BUILD SUCCESSFUL in 820ms
-4 actionable tasks: 4 up-to-date
-Unpacking https://repo1.maven.org/maven2/org/sonarsource/scanner/cli/sonar-scanner-cli/5.0.1.3006/sonar-scanner-cli-5.0.1.3006.zip to /var/jenkins_home/tools/hudson.plugins.sonar.SonarRunnerInstallation/SonarQube_Scanner on Jenkins
-[java_app] $ /var/jenkins_home/tools/hudson.plugins.sonar.SonarRunnerInstallation/SonarQube_Scanner/bin/sonar-scanner -Dsonar.projectKey=spring_boot_application -Dsonar.host.url=http://sonarqube:9000 -Dsonar.login=9f6c4a01f31c31e281d9829546dc5e0e54c7a6ce -Dsonar.java.binaries=build/libs/CI-CD-Jenkins-0.0.1-SNAPSHOT.jar -Dsonar.projectBaseDir=/var/jenkins_home/workspace/java_app
+BUILD SUCCESSFUL in 1s
+7 actionable tasks: 3 executed, 4 up-to-date
+[spring_boot_application] $ /var/jenkins_home/tools/hudson.plugins.sonar.SonarRunnerInstallation/SonarQube_Scanner/bin/sonar-scanner -Dsonar.projectKey=application_java -Dsonar.host.url=http://sonarqube:9000 -Dsonar.login=2b4f75ee09713fcb176c5e646745b03b29f28ff8 -Dsonar.java.binaries=build/classes/java/main -Dsonar.projectBaseDir=/var/jenkins_home/workspace/spring_boot_application
 INFO: Scanner configuration file: /var/jenkins_home/tools/hudson.plugins.sonar.SonarRunnerInstallation/SonarQube_Scanner/conf/sonar-scanner.properties
 INFO: Project root configuration file: NONE
 INFO: SonarScanner 5.0.1.3006
-INFO: Java 17.0.10 Eclipse Adoptium (64-bit)
+INFO: Java 17.0.11 Eclipse Adoptium (64-bit)
 INFO: Linux 5.15.146.1-microsoft-standard-WSL2 amd64
 INFO: User cache: /root/.sonar/cache
 INFO: Analyzing on SonarQube server 8.9.10
 INFO: Default locale: "en", source code encoding: "UTF-8" (analysis is platform dependent)
 INFO: Load global settings
-INFO: Load global settings (done) | time=48ms
-INFO: Server id: 46AF5D23-AY-Am2m_nTkIEHAEVrHG
+INFO: Load global settings (done) | time=39ms
+INFO: Server id: 46AF5D23-AY-pl00y0M3neudJqmow
 INFO: User cache: /root/.sonar/cache
 INFO: Load/download plugins
 INFO: Load plugins index
-INFO: Load plugins index (done) | time=28ms
-INFO: Load/download plugins (done) | time=564ms
+INFO: Load plugins index (done) | time=21ms
+INFO: Load/download plugins (done) | time=46ms
 INFO: Process project properties
-INFO: Process project properties (done) | time=0ms
+INFO: Process project properties (done) | time=1ms
 INFO: Execute project builders
-INFO: Execute project builders (done) | time=2ms
-INFO: Project key: spring_boot_application
-INFO: Base dir: /var/jenkins_home/workspace/java_app
-INFO: Working dir: /var/jenkins_home/workspace/java_app/.scannerwork
-INFO: Load project settings for component key: 'spring_boot_application'
-INFO: Load project settings for component key: 'spring_boot_application' (done) | time=17ms
+INFO: Execute project builders (done) | time=1ms
+INFO: Project key: application_java
+INFO: Base dir: /var/jenkins_home/workspace/spring_boot_application
+INFO: Working dir: /var/jenkins_home/workspace/spring_boot_application/.scannerwork
+INFO: Load project settings for component key: 'application_java'
+INFO: Load project settings for component key: 'application_java' (done) | time=7ms
 INFO: Auto-configuring with CI 'Jenkins'
 INFO: Load quality profiles
-INFO: Load quality profiles (done) | time=39ms
+INFO: Load quality profiles (done) | time=24ms
 INFO: Auto-configuring with CI 'Jenkins'
 INFO: Load active rules
-INFO: Load active rules (done) | time=665ms
+INFO: Load active rules (done) | time=440ms
 INFO: Indexing files...
 INFO: Project configuration:
-INFO: 26 files indexed
+INFO: 27 files indexed
 INFO: 21 files ignored because of scm ignore settings
 INFO: Quality profile for java: Sonar way
-INFO: ------------- Run sensors on module spring_boot_application
+INFO: ------------- Run sensors on module application_java
 INFO: Load metrics repository
-INFO: Load metrics repository (done) | time=19ms
+INFO: Load metrics repository (done) | time=15ms
 INFO: Sensor JavaSquidSensor [java]
 INFO: Configured Java source version (sonar.java.source): none
 INFO: JavaClasspath initialization
-INFO: JavaClasspath initialization (done) | time=6ms
+INFO: JavaClasspath initialization (done) | time=5ms
 INFO: JavaTestClasspath initialization
 INFO: JavaTestClasspath initialization (done) | time=0ms
 INFO: Java Main Files AST scan
@@ -118,7 +107,7 @@ INFO: Load project repositories (done) | time=12ms
 INFO: 3/3 source files have been analyzed
 WARN: Dependencies/libraries were not provided for analysis of SOURCE files. The 'sonar.java.libraries' property is empty. Verify your configuration, as you might end up with less precise results.
 WARN: Unresolved imports/types have been detected during analysis. Enable DEBUG mode to see them.
-INFO: Java Main Files AST scan (done) | time=552ms
+INFO: Java Main Files AST scan (done) | time=561ms
 INFO: Java Test Files AST scan
 INFO: 0 source files to be analyzed
 INFO: 0/0 source files have been analyzed
@@ -126,8 +115,8 @@ INFO: Java Test Files AST scan (done) | time=0ms
 INFO: Java Generated Files AST scan
 INFO: 0 source files to be analyzed
 INFO: 0/0 source files have been analyzed
-INFO: Java Generated Files AST scan (done) | time=1ms
-INFO: Sensor JavaSquidSensor [java] (done) | time=707ms
+INFO: Java Generated Files AST scan (done) | time=0ms
+INFO: Sensor JavaSquidSensor [java] (done) | time=723ms
 INFO: Sensor CSS Rules [cssfamily]
 INFO: No CSS, PHP, HTML or VueJS files are found in the project. CSS analysis is skipped.
 INFO: Sensor CSS Rules [cssfamily] (done) | time=0ms
@@ -140,75 +129,839 @@ INFO: Sensor C# Project Type Information [csharp] (done) | time=1ms
 INFO: Sensor C# Properties [csharp]
 INFO: Sensor C# Properties [csharp] (done) | time=0ms
 INFO: Sensor SurefireSensor [java]
-INFO: parsing [/var/jenkins_home/workspace/java_app/target/surefire-reports]
+INFO: parsing [/var/jenkins_home/workspace/spring_boot_application/target/surefire-reports]
 INFO: Sensor SurefireSensor [java] (done) | time=1ms
 INFO: Sensor JavaXmlSensor [java]
-INFO: Sensor JavaXmlSensor [java] (done) | time=1ms
+INFO: Sensor JavaXmlSensor [java] (done) | time=0ms
 INFO: Sensor HTML [web]
-INFO: Sensor HTML [web] (done) | time=1ms
+INFO: Sensor HTML [web] (done) | time=2ms
 INFO: Sensor VB.NET Project Type Information [vbnet]
 INFO: Sensor VB.NET Project Type Information [vbnet] (done) | time=0ms
 INFO: Sensor VB.NET Properties [vbnet]
-INFO: Sensor VB.NET Properties [vbnet] (done) | time=1ms
+INFO: Sensor VB.NET Properties [vbnet] (done) | time=0ms
 INFO: ------------- Run sensors on project
 INFO: Sensor Zero Coverage Sensor
-INFO: Sensor Zero Coverage Sensor (done) | time=4ms
+INFO: Sensor Zero Coverage Sensor (done) | time=3ms
 INFO: Sensor Java CPD Block Indexer
 INFO: Sensor Java CPD Block Indexer (done) | time=9ms
 INFO: SCM Publisher SCM provider for this project is: git
 INFO: SCM Publisher 3 source files to be analyzed
-INFO: SCM Publisher 3/3 source files have been analyzed (done) | time=38ms
+INFO: SCM Publisher 3/3 source files have been analyzed (done) | time=39ms
 INFO: CPD Executor 2 files had no CPD blocks
 INFO: CPD Executor Calculating CPD for 1 file
 INFO: CPD Executor CPD calculation finished (done) | time=3ms
-INFO: Analysis report generated in 32ms, dir size=99 KB
-INFO: Analysis report compressed in 10ms, zip size=17 KB
-INFO: Analysis report uploaded in 25ms
-INFO: ANALYSIS SUCCESSFUL, you can browse http://sonarqube:9000/dashboard?id=spring_boot_application
+INFO: Analysis report generated in 31ms, dir size=99 KB
+INFO: Analysis report compressed in 13ms, zip size=17 KB
+INFO: Analysis report uploaded in 24ms
+INFO: ANALYSIS SUCCESSFUL, you can browse http://sonarqube:9000/dashboard?id=application_java
 INFO: Note that you will be able to access the updated dashboard once the server has processed the submitted analysis report
-INFO: More about the report processing at http://sonarqube:9000/api/ce/task?id=AY-AprmenTkIEHAEVv4I
-INFO: Analysis total time: 2.365 s
+INFO: More about the report processing at http://sonarqube:9000/api/ce/task?id=AY-prJqc0M3neudJqrZz
+INFO: Analysis total time: 2.076 s
 INFO: ------------------------------------------------------------------------
 INFO: EXECUTION SUCCESS
 INFO: ------------------------------------------------------------------------
-INFO: Total time: 3.585s
-INFO: Final Memory: 17M/68M
+INFO: Total time: 2.610s
+INFO: Final Memory: 17M/60M
 INFO: ------------------------------------------------------------------------
-[java_app] $ /bin/sh -xe /tmp/jenkins3043441237537024763.sh
+[spring_boot_application] $ /bin/sh -xe /tmp/jenkins12282988572262250743.sh
 + chmod +x docker_deploy.sh
 + ./docker_deploy.sh
 Error response from daemon: No such container: spring_application
 Error response from daemon: No such container: spring_application
+Error response from daemon: No such image: application:latest
+
 #0 building with "default" instance using docker driver
 
 #1 [internal] load build definition from Dockerfile
-#1 transferring dockerfile: 205B done
 #1 DONE 0.0s
 
-#2 [internal] load metadata for docker.io/astita/openjdk17_jdk-alpine:latest
-#2 DONE 1.0s
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 496B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/openjdk:17-jdk-alpine
+
+#2 DONE 1.3s
 
 #3 [internal] load .dockerignore
 #3 transferring context: 2B done
 #3 DONE 0.0s
 
-#4 [1/3] FROM docker.io/astita/openjdk17_jdk-alpine:latest@sha256:bf023cf116445d15e5c24b333e3ede6c45f47c1857ff71383d7ef274dbb9ad0d
-#4 DONE 0.0s
+#4 [1/3] FROM docker.io/library/openjdk:17-jdk-alpine@sha256:4b6abae565492dbe9e7a894137c966a7485154238902f2f25e9dbd9784383d81
+#4 CACHED
 
 #5 [internal] load build context
-#5 transferring context: 19.77MB 0.4s done
-#5 DONE 0.4s
+#5 transferring context: 19.77MB 0.3s done
+#5 DONE 0.3s
 
-#6 [2/3] WORKDIR app/
-#6 CACHED
+#6 [2/3] RUN wget https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.24/bin/apache-tomcat-10.1.24.tar.gz &&     mkdir /opt/tomcat &&     tar -xvzf apache-tomcat-10.1.24.tar.gz -C /opt/tomcat --strip-components=1 &&     rm apache-tomcat-10.1.24.tar.gz &&     chmod +x /opt/tomcat/bin/*.sh
+#6 0.670 Connecting to dlcdn.apache.org (151.101.2.132:443)
 
-#7 [3/3] COPY build/libs/CI-CD-Jenkins-0.0.1-SNAPSHOT.jar app.jar
+#6 0.776 saving to 'apache-tomcat-10.1.24.tar.gz'
+#6 1.015 apache-tomcat-10.1.2   8% |**                              | 1095k  0:00:10 ETA
+
+#6 2.008 apache-tomcat-10.1.2  70% |**********************          | 9008k  0:00:00 ETA
+
+#6 3.008 apache-tomcat-10.1.2  95% |******************************  | 11.8M  0:00:00 ETA
+#6 3.190 apache-tomcat-10.1.2 100% |********************************| 12.4M  0:00:00 ETA
+#6 3.190 'apache-tomcat-10.1.24.tar.gz' saved
+#6 3.197 apache-tomcat-10.1.24/conf/
+#6 3.205 apache-tomcat-10.1.24/conf/catalina.policy
+#6 3.205 apache-tomcat-10.1.24/conf/catalina.properties
+#6 3.205 apache-tomcat-10.1.24/conf/context.xml
+#6 3.205 apache-tomcat-10.1.24/conf/jaspic-providers.xml
+#6 3.205 apache-tomcat-10.1.24/conf/jaspic-providers.xsd
+#6 3.205 apache-tomcat-10.1.24/conf/logging.properties
+#6 3.205 apache-tomcat-10.1.24/conf/server.xml
+#6 3.205 apache-tomcat-10.1.24/conf/tomcat-users.xml
+#6 3.205 apache-tomcat-10.1.24/conf/tomcat-users.xsd
+#6 3.205 apache-tomcat-10.1.24/conf/web.xml
+#6 3.205 apache-tomcat-10.1.24/bin/
+#6 3.205 apache-tomcat-10.1.24/lib/
+#6 3.205 apache-tomcat-10.1.24/logs/
+#6 3.205 apache-tomcat-10.1.24/temp/
+#6 3.205 apache-tomcat-10.1.24/webapps/
+#6 3.205 apache-tomcat-10.1.24/webapps/ROOT/
+#6 3.205 apache-tomcat-10.1.24/webapps/ROOT/WEB-INF/
+#6 3.205 apache-tomcat-10.1.24/webapps/docs/
+#6 3.205 apache-tomcat-10.1.24/webapps/docs/META-INF/
+#6 3.205 apache-tomcat-10.1.24/webapps/docs/WEB-INF/
+#6 3.205 apache-tomcat-10.1.24/webapps/docs/WEB-INF/jsp/
+#6 3.205 apache-tomcat-10.1.24/webapps/docs/annotationapi/
+#6 3.205 apache-tomcat-10.1.24/webapps/docs/api/
+#6 3.205 apache-tomcat-10.1.24/webapps/docs/appdev/
+#6 3.205 apache-tomcat-10.1.24/webapps/docs/appdev/sample/
+#6 3.205 apache-tomcat-10.1.24/webapps/docs/appdev/sample/docs/
+#6 3.208 apache-tomcat-10.1.24/webapps/docs/appdev/sample/src/
+#6 3.208 apache-tomcat-10.1.24/webapps/docs/appdev/sample/src/mypackage/
+#6 3.208 apache-tomcat-10.1.24/webapps/docs/appdev/sample/web/
+#6 3.208 apache-tomcat-10.1.24/webapps/docs/appdev/sample/web/WEB-INF/
+#6 3.208 apache-tomcat-10.1.24/webapps/docs/appdev/sample/web/images/
+#6 3.208 apache-tomcat-10.1.24/webapps/docs/architecture/
+#6 3.208 apache-tomcat-10.1.24/webapps/docs/architecture/requestProcess/
+#6 3.208 apache-tomcat-10.1.24/webapps/docs/architecture/startup/
+#6 3.208 apache-tomcat-10.1.24/webapps/docs/config/
+#6 3.208 apache-tomcat-10.1.24/webapps/docs/elapi/
+#6 3.208 apache-tomcat-10.1.24/webapps/docs/images/
+#6 3.208 apache-tomcat-10.1.24/webapps/docs/images/fonts/
+#6 3.208 apache-tomcat-10.1.24/webapps/docs/jaspicapi/
+#6 3.208 apache-tomcat-10.1.24/webapps/docs/jspapi/
+#6 3.208 apache-tomcat-10.1.24/webapps/docs/servletapi/
+#6 3.208 apache-tomcat-10.1.24/webapps/docs/tribes/
+#6 3.208 apache-tomcat-10.1.24/webapps/docs/websocketapi/
+#6 3.208 apache-tomcat-10.1.24/webapps/examples/
+#6 3.208 apache-tomcat-10.1.24/webapps/examples/META-INF/
+#6 3.208 apache-tomcat-10.1.24/webapps/examples/WEB-INF/
+#6 3.208 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/
+#6 3.209 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/async/
+#6 3.209 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/cal/
+#6 3.209 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/checkbox/
+#6 3.209 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/colors/
+#6 3.209 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/compressionFilters/
+#6 3.209 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/dates/
+#6 3.209 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/error/
+#6 3.209 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/examples/
+#6 3.209 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/filters/
+#6 3.209 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/http2/
+#6 3.209 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/jsp2/
+#6 3.209 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/jsp2/examples/
+#6 3.209 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/jsp2/examples/el/
+#6 3.209 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/jsp2/examples/simpletag/
+#6 3.209 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/listeners/
+#6 3.209 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/nonblocking/
+#6 3.212 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/num/
+#6 3.212 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/sessions/
+#6 3.212 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/trailers/
+#6 3.212 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/util/
+#6 3.212 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/validators/
+#6 3.212 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/
+#6 3.212 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/chat/
+#6 3.212 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/drawboard/
+#6 3.212 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/drawboard/wsmessages/
+#6 3.212 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/echo/
+#6 3.212 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/snake/
+#6 3.212 apache-tomcat-10.1.24/webapps/examples/WEB-INF/jsp/
+#6 3.212 apache-tomcat-10.1.24/webapps/examples/WEB-INF/lib/
+#6 3.212 apache-tomcat-10.1.24/webapps/examples/WEB-INF/tags/
+#6 3.212 apache-tomcat-10.1.24/webapps/examples/jsp/
+#6 3.212 apache-tomcat-10.1.24/webapps/examples/jsp/async/
+#6 3.212 apache-tomcat-10.1.24/webapps/examples/jsp/cal/
+#6 3.214 apache-tomcat-10.1.24/webapps/examples/jsp/checkbox/
+#6 3.214 apache-tomcat-10.1.24/webapps/examples/jsp/colors/
+#6 3.214 apache-tomcat-10.1.24/webapps/examples/jsp/dates/
+#6 3.214 apache-tomcat-10.1.24/webapps/examples/jsp/error/
+#6 3.214 apache-tomcat-10.1.24/webapps/examples/jsp/forward/
+#6 3.214 apache-tomcat-10.1.24/webapps/examples/jsp/images/
+#6 3.214 apache-tomcat-10.1.24/webapps/examples/jsp/include/
+#6 3.214 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/
+#6 3.214 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/el/
+#6 3.214 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/jspattribute/
+#6 3.214 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/jspx/
+#6 3.214 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/misc/
+#6 3.214 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/simpletag/
+#6 3.214 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/tagfiles/
+#6 3.214 apache-tomcat-10.1.24/webapps/examples/jsp/jsptoserv/
+#6 3.214 apache-tomcat-10.1.24/webapps/examples/jsp/num/
+#6 3.214 apache-tomcat-10.1.24/webapps/examples/jsp/security/
+#6 3.214 apache-tomcat-10.1.24/webapps/examples/jsp/security/protected/
+#6 3.214 apache-tomcat-10.1.24/webapps/examples/jsp/sessions/
+#6 3.214 apache-tomcat-10.1.24/webapps/examples/jsp/simpletag/
+#6 3.216 apache-tomcat-10.1.24/webapps/examples/jsp/snp/
+#6 3.216 apache-tomcat-10.1.24/webapps/examples/jsp/tagplugin/
+#6 3.216 apache-tomcat-10.1.24/webapps/examples/jsp/xml/
+#6 3.216 apache-tomcat-10.1.24/webapps/examples/servlets/
+#6 3.216 apache-tomcat-10.1.24/webapps/examples/servlets/images/
+#6 3.216 apache-tomcat-10.1.24/webapps/examples/servlets/nonblocking/
+#6 3.216 apache-tomcat-10.1.24/webapps/examples/websocket/
+#6 3.216 apache-tomcat-10.1.24/webapps/host-manager/
+#6 3.216 apache-tomcat-10.1.24/webapps/host-manager/META-INF/
+#6 3.216 apache-tomcat-10.1.24/webapps/host-manager/WEB-INF/
+#6 3.216 apache-tomcat-10.1.24/webapps/host-manager/WEB-INF/jsp/
+#6 3.216 apache-tomcat-10.1.24/webapps/host-manager/css/
+#6 3.216 apache-tomcat-10.1.24/webapps/host-manager/images/
+#6 3.216 apache-tomcat-10.1.24/webapps/manager/
+#6 3.216 apache-tomcat-10.1.24/webapps/manager/META-INF/
+#6 3.216 apache-tomcat-10.1.24/webapps/manager/WEB-INF/
+#6 3.216 apache-tomcat-10.1.24/webapps/manager/WEB-INF/jsp/
+#6 3.216 apache-tomcat-10.1.24/webapps/manager/css/
+#6 3.216 apache-tomcat-10.1.24/webapps/manager/images/
+#6 3.216 apache-tomcat-10.1.24/work/
+#6 3.216 apache-tomcat-10.1.24/BUILDING.txt
+#6 3.216 apache-tomcat-10.1.24/CONTRIBUTING.md
+#6 3.229 apache-tomcat-10.1.24/LICENSE
+#6 3.229 apache-tomcat-10.1.24/NOTICE
+#6 3.229 apache-tomcat-10.1.24/README.md
+#6 3.229 apache-tomcat-10.1.24/RELEASE-NOTES
+#6 3.229 apache-tomcat-10.1.24/RUNNING.txt
+#6 3.229 apache-tomcat-10.1.24/bin/bootstrap.jar
+#6 3.229 apache-tomcat-10.1.24/bin/catalina-tasks.xml
+#6 3.229 apache-tomcat-10.1.24/bin/catalina.bat
+#6 3.229 apache-tomcat-10.1.24/bin/ciphers.bat
+#6 3.229 apache-tomcat-10.1.24/bin/commons-daemon-native.tar.gz
+#6 3.229 apache-tomcat-10.1.24/bin/commons-daemon.jar
+#6 3.229 apache-tomcat-10.1.24/bin/configtest.bat
+#6 3.229 apache-tomcat-10.1.24/bin/digest.bat
+#6 3.229 apache-tomcat-10.1.24/bin/makebase.bat
+#6 3.229 apache-tomcat-10.1.24/bin/migrate.bat
+#6 3.229 apache-tomcat-10.1.24/bin/setclasspath.bat
+#6 3.229 apache-tomcat-10.1.24/bin/shutdown.bat
+#6 3.229 apache-tomcat-10.1.24/bin/startup.bat
+#6 3.229 apache-tomcat-10.1.24/bin/tomcat-juli.jar
+#6 3.229 apache-tomcat-10.1.24/bin/tomcat-native.tar.gz
+#6 3.229 apache-tomcat-10.1.24/bin/tool-wrapper.bat
+#6 3.229 apache-tomcat-10.1.24/bin/version.bat
+#6 3.229 apache-tomcat-10.1.24/lib/annotations-api.jar
+#6 3.229 apache-tomcat-10.1.24/lib/catalina-ant.jar
+#6 3.229 apache-tomcat-10.1.24/lib/catalina-ha.jar
+#6 3.229 apache-tomcat-10.1.24/lib/catalina-ssi.jar
+#6 3.309 apache-tomcat-10.1.24/lib/catalina-storeconfig.jar
+#6 3.309 apache-tomcat-10.1.24/lib/catalina-tribes.jar
+#6 3.309 apache-tomcat-10.1.24/lib/catalina.jar
+#6 3.309 apache-tomcat-10.1.24/lib/ecj-4.27.jar
+#6 3.309 apache-tomcat-10.1.24/lib/el-api.jar
+#6 3.309 apache-tomcat-10.1.24/lib/jakartaee-migration-1.0.8-shaded.jar
+#6 3.309 apache-tomcat-10.1.24/lib/jasper-el.jar
+#6 3.309 apache-tomcat-10.1.24/lib/jasper.jar
+#6 3.309 apache-tomcat-10.1.24/lib/jaspic-api.jar
+#6 3.309 apache-tomcat-10.1.24/lib/jsp-api.jar
+#6 3.309 apache-tomcat-10.1.24/lib/servlet-api.jar
+#6 3.309 apache-tomcat-10.1.24/lib/tomcat-api.jar
+#6 3.309 apache-tomcat-10.1.24/lib/tomcat-coyote.jar
+#6 3.309 apache-tomcat-10.1.24/lib/tomcat-dbcp.jar
+#6 3.309 apache-tomcat-10.1.24/lib/tomcat-i18n-cs.jar
+#6 3.309 apache-tomcat-10.1.24/lib/tomcat-i18n-de.jar
+#6 3.309 apache-tomcat-10.1.24/lib/tomcat-i18n-es.jar
+#6 3.309 apache-tomcat-10.1.24/lib/tomcat-i18n-fr.jar
+#6 3.309 apache-tomcat-10.1.24/lib/tomcat-i18n-ja.jar
+#6 3.309 apache-tomcat-10.1.24/lib/tomcat-i18n-ko.jar
+#6 3.309 apache-tomcat-10.1.24/lib/tomcat-i18n-pt-BR.jar
+#6 3.309 apache-tomcat-10.1.24/lib/tomcat-i18n-ru.jar
+#6 3.309 apache-tomcat-10.1.24/lib/tomcat-i18n-zh-CN.jar
+#6 3.309 apache-tomcat-10.1.24/lib/tomcat-jdbc.jar
+#6 3.317 apache-tomcat-10.1.24/lib/tomcat-jni.jar
+#6 3.317 apache-tomcat-10.1.24/lib/tomcat-util-scan.jar
+#6 3.317 apache-tomcat-10.1.24/lib/tomcat-util.jar
+#6 3.317 apache-tomcat-10.1.24/lib/tomcat-websocket.jar
+#6 3.317 apache-tomcat-10.1.24/lib/websocket-api.jar
+#6 3.317 apache-tomcat-10.1.24/lib/websocket-client-api.jar
+#6 3.317 apache-tomcat-10.1.24/temp/safeToDelete.tmp
+#6 3.317 apache-tomcat-10.1.24/webapps/ROOT/RELEASE-NOTES.txt
+#6 3.317 apache-tomcat-10.1.24/webapps/ROOT/WEB-INF/web.xml
+#6 3.317 apache-tomcat-10.1.24/webapps/ROOT/asf-logo-wide.svg
+#6 3.317 apache-tomcat-10.1.24/webapps/ROOT/bg-button.png
+#6 3.317 apache-tomcat-10.1.24/webapps/ROOT/bg-middle.png
+#6 3.317 apache-tomcat-10.1.24/webapps/ROOT/bg-nav.png
+#6 3.317 apache-tomcat-10.1.24/webapps/ROOT/bg-upper.png
+#6 3.317 apache-tomcat-10.1.24/webapps/ROOT/favicon.ico
+#6 3.317 apache-tomcat-10.1.24/webapps/ROOT/index.jsp
+#6 3.317 apache-tomcat-10.1.24/webapps/ROOT/tomcat.css
+#6 3.317 apache-tomcat-10.1.24/webapps/ROOT/tomcat.svg
+#6 3.317 apache-tomcat-10.1.24/webapps/docs/BUILDING.txt
+#6 3.317 apache-tomcat-10.1.24/webapps/docs/META-INF/context.xml
+#6 3.317 apache-tomcat-10.1.24/webapps/docs/RELEASE-NOTES.txt
+#6 3.317 apache-tomcat-10.1.24/webapps/docs/RUNNING.txt
+#6 3.318 apache-tomcat-10.1.24/webapps/docs/WEB-INF/jsp/403.jsp
+#6 3.318 apache-tomcat-10.1.24/webapps/docs/WEB-INF/web.xml
+#6 3.318 apache-tomcat-10.1.24/webapps/docs/aio.html
+#6 3.318 apache-tomcat-10.1.24/webapps/docs/annotationapi/index.html
+#6 3.318 apache-tomcat-10.1.24/webapps/docs/api/index.html
+#6 3.318 apache-tomcat-10.1.24/webapps/docs/appdev/build.xml.txt
+#6 3.318 apache-tomcat-10.1.24/webapps/docs/appdev/deployment.html
+#6 3.318 apache-tomcat-10.1.24/webapps/docs/appdev/index.html
+#6 3.318 apache-tomcat-10.1.24/webapps/docs/appdev/installation.html
+#6 3.318 apache-tomcat-10.1.24/webapps/docs/appdev/introduction.html
+#6 3.318 apache-tomcat-10.1.24/webapps/docs/appdev/processes.html
+#6 3.318 apache-tomcat-10.1.24/webapps/docs/appdev/sample/build.xml
+#6 3.318 apache-tomcat-10.1.24/webapps/docs/appdev/sample/docs/README.txt
+#6 3.318 apache-tomcat-10.1.24/webapps/docs/appdev/sample/index.html
+#6 3.318 apache-tomcat-10.1.24/webapps/docs/appdev/sample/sample.war
+#6 3.318 apache-tomcat-10.1.24/webapps/docs/appdev/sample/src/mypackage/Hello.java
+#6 3.318 apache-tomcat-10.1.24/webapps/docs/appdev/sample/web/WEB-INF/web.xml
+#6 3.318 apache-tomcat-10.1.24/webapps/docs/appdev/sample/web/hello.jsp
+#6 3.320 apache-tomcat-10.1.24/webapps/docs/appdev/sample/web/images/tomcat.gif
+#6 3.320 apache-tomcat-10.1.24/webapps/docs/appdev/sample/web/index.html
+#6 3.320 apache-tomcat-10.1.24/webapps/docs/appdev/source.html
+#6 3.320 apache-tomcat-10.1.24/webapps/docs/appdev/web.xml.txt
+#6 3.320 apache-tomcat-10.1.24/webapps/docs/apr.html
+#6 3.320 apache-tomcat-10.1.24/webapps/docs/architecture/index.html
+#6 3.320 apache-tomcat-10.1.24/webapps/docs/architecture/overview.html
+#6 3.320 apache-tomcat-10.1.24/webapps/docs/architecture/requestProcess.html
+#6 3.320 apache-tomcat-10.1.24/webapps/docs/architecture/requestProcess/authentication-process.png
+#6 3.320 apache-tomcat-10.1.24/webapps/docs/architecture/requestProcess/request-process.png
+#6 3.320 apache-tomcat-10.1.24/webapps/docs/architecture/startup.html
+#6 3.320 apache-tomcat-10.1.24/webapps/docs/architecture/startup/serverStartup.pdf
+#6 3.320 apache-tomcat-10.1.24/webapps/docs/architecture/startup/serverStartup.txt
+#6 3.320 apache-tomcat-10.1.24/webapps/docs/balancer-howto.html
+#6 3.320 apache-tomcat-10.1.24/webapps/docs/building.html
+#6 3.320 apache-tomcat-10.1.24/webapps/docs/cdi.html
+#6 3.320 apache-tomcat-10.1.24/webapps/docs/cgi-howto.html
+#6 3.323 apache-tomcat-10.1.24/webapps/docs/changelog.html
+#6 3.323 apache-tomcat-10.1.24/webapps/docs/class-loader-howto.html
+#6 3.323 apache-tomcat-10.1.24/webapps/docs/cluster-howto.html
+#6 3.323 apache-tomcat-10.1.24/webapps/docs/comments.html
+#6 3.323 apache-tomcat-10.1.24/webapps/docs/config/ajp.html
+#6 3.323 apache-tomcat-10.1.24/webapps/docs/config/automatic-deployment.html
+#6 3.323 apache-tomcat-10.1.24/webapps/docs/config/cluster-channel.html
+#6 3.323 apache-tomcat-10.1.24/webapps/docs/config/cluster-deployer.html
+#6 3.323 apache-tomcat-10.1.24/webapps/docs/config/cluster-interceptor.html
+#6 3.323 apache-tomcat-10.1.24/webapps/docs/config/cluster-listener.html
+#6 3.323 apache-tomcat-10.1.24/webapps/docs/config/cluster-manager.html
+#6 3.323 apache-tomcat-10.1.24/webapps/docs/config/cluster-membership.html
+#6 3.323 apache-tomcat-10.1.24/webapps/docs/config/cluster-receiver.html
+#6 3.323 apache-tomcat-10.1.24/webapps/docs/config/cluster-sender.html
+#6 3.323 apache-tomcat-10.1.24/webapps/docs/config/cluster-valve.html
+#6 3.323 apache-tomcat-10.1.24/webapps/docs/config/cluster.html
+#6 3.323 apache-tomcat-10.1.24/webapps/docs/config/context.html
+#6 3.323 apache-tomcat-10.1.24/webapps/docs/config/cookie-processor.html
+#6 3.326 apache-tomcat-10.1.24/webapps/docs/config/credentialhandler.html
+#6 3.326 apache-tomcat-10.1.24/webapps/docs/config/engine.html
+#6 3.326 apache-tomcat-10.1.24/webapps/docs/config/executor.html
+#6 3.326 apache-tomcat-10.1.24/webapps/docs/config/filter.html
+#6 3.326 apache-tomcat-10.1.24/webapps/docs/config/globalresources.html
+#6 3.326 apache-tomcat-10.1.24/webapps/docs/config/host.html
+#6 3.326 apache-tomcat-10.1.24/webapps/docs/config/http.html
+#6 3.326 apache-tomcat-10.1.24/webapps/docs/config/http2.html
+#6 3.326 apache-tomcat-10.1.24/webapps/docs/config/index.html
+#6 3.326 apache-tomcat-10.1.24/webapps/docs/config/jar-scan-filter.html
+#6 3.326 apache-tomcat-10.1.24/webapps/docs/config/jar-scanner.html
+#6 3.326 apache-tomcat-10.1.24/webapps/docs/config/jaspic.html
+#6 3.326 apache-tomcat-10.1.24/webapps/docs/config/listeners.html
+#6 3.326 apache-tomcat-10.1.24/webapps/docs/config/loader.html
+#6 3.326 apache-tomcat-10.1.24/webapps/docs/config/manager.html
+#6 3.326 apache-tomcat-10.1.24/webapps/docs/config/realm.html
+#6 3.326 apache-tomcat-10.1.24/webapps/docs/config/resources.html
+#6 3.326 apache-tomcat-10.1.24/webapps/docs/config/server.html
+#6 3.326 apache-tomcat-10.1.24/webapps/docs/config/service.html
+#6 3.328 apache-tomcat-10.1.24/webapps/docs/config/sessionidgenerator.html
+#6 3.328 apache-tomcat-10.1.24/webapps/docs/config/systemprops.html
+#6 3.328 apache-tomcat-10.1.24/webapps/docs/config/valve.html
+#6 3.328 apache-tomcat-10.1.24/webapps/docs/connectors.html
+#6 3.328 apache-tomcat-10.1.24/webapps/docs/default-servlet.html
+#6 3.328 apache-tomcat-10.1.24/webapps/docs/deployer-howto.html
+#6 3.328 apache-tomcat-10.1.24/webapps/docs/developers.html
+#6 3.328 apache-tomcat-10.1.24/webapps/docs/elapi/index.html
+#6 3.328 apache-tomcat-10.1.24/webapps/docs/graal.html
+#6 3.328 apache-tomcat-10.1.24/webapps/docs/host-manager-howto.html
+#6 3.328 apache-tomcat-10.1.24/webapps/docs/html-host-manager-howto.html
+#6 3.328 apache-tomcat-10.1.24/webapps/docs/html-manager-howto.html
+#6 3.328 apache-tomcat-10.1.24/webapps/docs/images/add.gif
+#6 3.328 apache-tomcat-10.1.24/webapps/docs/images/asf-logo.svg
+#6 3.328 apache-tomcat-10.1.24/webapps/docs/images/code.gif
+#6 3.328 apache-tomcat-10.1.24/webapps/docs/images/cors-flowchart.png
+#6 3.328 apache-tomcat-10.1.24/webapps/docs/images/design.gif
+#6 3.328 apache-tomcat-10.1.24/webapps/docs/images/docs-stylesheet.css
+#6 3.328 apache-tomcat-10.1.24/webapps/docs/images/docs.gif
+#6 3.330 apache-tomcat-10.1.24/webapps/docs/images/fix.gif
+#6 3.330 apache-tomcat-10.1.24/webapps/docs/images/fonts/OpenSans400.woff
+#6 3.330 apache-tomcat-10.1.24/webapps/docs/images/fonts/OpenSans400italic.woff
+#6 3.330 apache-tomcat-10.1.24/webapps/docs/images/fonts/OpenSans600.woff
+#6 3.330 apache-tomcat-10.1.24/webapps/docs/images/fonts/OpenSans600italic.woff
+#6 3.330 apache-tomcat-10.1.24/webapps/docs/images/fonts/OpenSans700.woff
+#6 3.330 apache-tomcat-10.1.24/webapps/docs/images/fonts/OpenSans700italic.woff
+#6 3.330 apache-tomcat-10.1.24/webapps/docs/images/fonts/fonts.css
+#6 3.330 apache-tomcat-10.1.24/webapps/docs/images/tomcat.gif
+#6 3.330 apache-tomcat-10.1.24/webapps/docs/images/tomcat.png
+#6 3.330 apache-tomcat-10.1.24/webapps/docs/images/update.gif
+#6 3.330 apache-tomcat-10.1.24/webapps/docs/images/void.gif
+#6 3.330 apache-tomcat-10.1.24/webapps/docs/index.html
+#6 3.330 apache-tomcat-10.1.24/webapps/docs/introduction.html
+#6 3.330 apache-tomcat-10.1.24/webapps/docs/jasper-howto.html
+#6 3.330 apache-tomcat-10.1.24/webapps/docs/jaspicapi/index.html
+#6 3.330 apache-tomcat-10.1.24/webapps/docs/jdbc-pool.html
+#6 3.330 apache-tomcat-10.1.24/webapps/docs/jndi-datasource-examples-howto.html
+#6 3.333 apache-tomcat-10.1.24/webapps/docs/jndi-resources-howto.html
+#6 3.333 apache-tomcat-10.1.24/webapps/docs/jspapi/index.html
+#6 3.333 apache-tomcat-10.1.24/webapps/docs/logging.html
+#6 3.333 apache-tomcat-10.1.24/webapps/docs/manager-howto.html
+#6 3.333 apache-tomcat-10.1.24/webapps/docs/maven-jars.html
+#6 3.333 apache-tomcat-10.1.24/webapps/docs/mbeans-descriptors-howto.html
+#6 3.333 apache-tomcat-10.1.24/webapps/docs/mbeans-descriptors.dtd
+#6 3.333 apache-tomcat-10.1.24/webapps/docs/monitoring.html
+#6 3.333 apache-tomcat-10.1.24/webapps/docs/proxy-howto.html
+#6 3.333 apache-tomcat-10.1.24/webapps/docs/realm-howto.html
+#6 3.333 apache-tomcat-10.1.24/webapps/docs/rewrite.html
+#6 3.333 apache-tomcat-10.1.24/webapps/docs/security-howto.html
+#6 3.333 apache-tomcat-10.1.24/webapps/docs/security-manager-howto.html
+#6 3.333 apache-tomcat-10.1.24/webapps/docs/servletapi/index.html
+#6 3.333 apache-tomcat-10.1.24/webapps/docs/setup.html
+#6 3.333 apache-tomcat-10.1.24/webapps/docs/ssi-howto.html
+#6 3.333 apache-tomcat-10.1.24/webapps/docs/ssl-howto.html
+#6 3.333 apache-tomcat-10.1.24/webapps/docs/tribes/developers.html
+#6 3.333 apache-tomcat-10.1.24/webapps/docs/tribes/faq.html
+#6 3.333 apache-tomcat-10.1.24/webapps/docs/tribes/interceptors.html
+#6 3.334 apache-tomcat-10.1.24/webapps/docs/tribes/introduction.html
+#6 3.334 apache-tomcat-10.1.24/webapps/docs/tribes/membership.html
+#6 3.334 apache-tomcat-10.1.24/webapps/docs/tribes/setup.html
+#6 3.334 apache-tomcat-10.1.24/webapps/docs/tribes/status.html
+#6 3.334 apache-tomcat-10.1.24/webapps/docs/tribes/transport.html
+#6 3.334 apache-tomcat-10.1.24/webapps/docs/virtual-hosting-howto.html
+#6 3.334 apache-tomcat-10.1.24/webapps/docs/web-socket-howto.html
+#6 3.334 apache-tomcat-10.1.24/webapps/docs/websocketapi/index.html
+#6 3.334 apache-tomcat-10.1.24/webapps/docs/windows-auth-howto.html
+#6 3.334 apache-tomcat-10.1.24/webapps/docs/windows-service-howto.html
+#6 3.334 apache-tomcat-10.1.24/webapps/examples/META-INF/context.xml
+#6 3.334 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/CookieExample.class
+#6 3.334 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/CookieExample.java
+#6 3.334 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/HelloWorldExample.class
+#6 3.334 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/HelloWorldExample.java
+#6 3.334 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/LocalStrings.properties
+#6 3.334 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/LocalStrings_cs.properties
+#6 3.334 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/LocalStrings_de.properties
+#6 3.334 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/LocalStrings_es.properties
+#6 3.334 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/LocalStrings_fr.properties
+#6 3.334 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/LocalStrings_ja.properties
+#6 3.334 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/LocalStrings_ko.properties
+#6 3.334 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/LocalStrings_pt.properties
+#6 3.334 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/LocalStrings_pt_BR.properties
+#6 3.334 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/LocalStrings_ru.properties
+#6 3.334 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/LocalStrings_zh_CN.properties
+#6 3.334 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/RequestHeaderExample.class
+#6 3.334 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/RequestHeaderExample.java
+#6 3.334 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/RequestInfoExample.class
+#6 3.335 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/RequestInfoExample.java
+#6 3.335 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/RequestParamExample.class
+#6 3.335 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/RequestParamExample.java
+#6 3.335 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/ServletToJsp.class
+#6 3.335 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/ServletToJsp.java
+#6 3.335 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/SessionExample.class
+#6 3.335 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/SessionExample.java
+#6 3.335 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/async/Async0$1.class
+#6 3.335 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/async/Async0.class
+#6 3.335 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/async/Async0.java
+#6 3.335 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/async/Async1$1.class
+#6 3.335 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/async/Async1.class
+#6 3.335 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/async/Async1.java
+#6 3.335 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/async/Async2$1.class
+#6 3.335 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/async/Async2.class
+#6 3.335 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/async/Async2.java
+#6 3.335 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/async/Async3.class
+#6 3.335 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/async/Async3.java
+#6 3.335 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/async/AsyncStockContextListener.class
+#6 3.335 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/async/AsyncStockContextListener.java
+#6 3.335 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/async/AsyncStockServlet.class
+#6 3.335 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/async/AsyncStockServlet.java
+#6 3.335 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/async/Stockticker$Stock.class
+#6 3.335 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/async/Stockticker$TickListener.class
+#6 3.335 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/async/Stockticker.class
+#6 3.335 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/async/Stockticker.java
+#6 3.335 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/cal/Entries.class
+#6 3.335 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/cal/Entries.java
+#6 3.335 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/cal/Entry.class
+#6 3.335 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/cal/Entry.java
+#6 3.335 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/cal/JspCalendar.class
+#6 3.335 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/cal/JspCalendar.java
+#6 3.335 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/cal/TableBean.class
+#6 3.335 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/cal/TableBean.java
+#6 3.335 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/checkbox/CheckTest.class
+#6 3.335 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/checkbox/CheckTest.java
+#6 3.335 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/colors/ColorGameBean.class
+#6 3.335 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/colors/ColorGameBean.java
+#6 3.335 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/compressionFilters/CompressionFilter.class
+#6 3.335 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/compressionFilters/CompressionFilter.java
+#6 3.336 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/compressionFilters/CompressionFilterTestServlet.class
+#6 3.336 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/compressionFilters/CompressionFilterTestServlet.java
+#6 3.336 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/compressionFilters/CompressionResponseStream.class
+#6 3.336 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/compressionFilters/CompressionResponseStream.java
+#6 3.336 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/compressionFilters/CompressionServletResponseWrapper.class
+#6 3.336 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/compressionFilters/CompressionServletResponseWrapper.java
+#6 3.336 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/dates/JspCalendar.class
+#6 3.336 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/dates/JspCalendar.java
+#6 3.336 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/error/Smart.class
+#6 3.336 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/error/Smart.java
+#6 3.336 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/examples/ExampleTagBase.class
+#6 3.336 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/examples/ExampleTagBase.java
+#6 3.336 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/examples/FooTag.class
+#6 3.336 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/examples/FooTag.java
+#6 3.336 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/examples/FooTagExtraInfo.class
+#6 3.336 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/examples/FooTagExtraInfo.java
+#6 3.336 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/examples/LogTag.class
+#6 3.336 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/examples/LogTag.java
+#6 3.336 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/examples/ValuesTag.class
+#6 3.336 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/examples/ValuesTag.java
+#6 3.336 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/filters/ExampleFilter.class
+#6 3.336 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/filters/ExampleFilter.java
+#6 3.336 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/http2/SimpleImagePush.class
+#6 3.336 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/http2/SimpleImagePush.java
+#6 3.337 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/jsp2/examples/BookBean.class
+#6 3.337 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/jsp2/examples/BookBean.java
+#6 3.337 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/jsp2/examples/FooBean.class
+#6 3.337 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/jsp2/examples/FooBean.java
+#6 3.337 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/jsp2/examples/ValuesBean.class
+#6 3.337 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/jsp2/examples/ValuesBean.java
+#6 3.337 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/jsp2/examples/el/Functions.class
+#6 3.337 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/jsp2/examples/el/Functions.java
+#6 3.337 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/jsp2/examples/simpletag/EchoAttributesTag.class
+#6 3.337 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/jsp2/examples/simpletag/EchoAttributesTag.java
+#6 3.337 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/jsp2/examples/simpletag/FindBookSimpleTag.class
+#6 3.337 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/jsp2/examples/simpletag/FindBookSimpleTag.java
+#6 3.337 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/jsp2/examples/simpletag/HelloWorldSimpleTag.class
+#6 3.337 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/jsp2/examples/simpletag/HelloWorldSimpleTag.java
+#6 3.337 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/jsp2/examples/simpletag/RepeatSimpleTag.class
+#6 3.337 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/jsp2/examples/simpletag/RepeatSimpleTag.java
+#6 3.337 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/jsp2/examples/simpletag/ShuffleSimpleTag.class
+#6 3.337 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/jsp2/examples/simpletag/ShuffleSimpleTag.java
+#6 3.337 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/jsp2/examples/simpletag/TileSimpleTag.class
+#6 3.337 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/jsp2/examples/simpletag/TileSimpleTag.java
+#6 3.337 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/listeners/ContextListener.class
+#6 3.337 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/listeners/ContextListener.java
+#6 3.337 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/listeners/SessionListener.class
+#6 3.337 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/listeners/SessionListener.java
+#6 3.337 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/nonblocking/ByteCounter$CounterListener.class
+#6 3.337 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/nonblocking/ByteCounter.class
+#6 3.337 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/nonblocking/ByteCounter.java
+#6 3.337 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/nonblocking/NumberWriter$NumberWriterListener.class
+#6 3.337 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/nonblocking/NumberWriter.class
+#6 3.337 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/nonblocking/NumberWriter.java
+#6 3.337 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/num/NumberGuessBean.class
+#6 3.337 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/num/NumberGuessBean.java
+#6 3.337 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/sessions/DummyCart.class
+#6 3.337 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/sessions/DummyCart.java
+#6 3.337 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/trailers/ResponseTrailers$TrailerFieldSupplier.class
+#6 3.338 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/trailers/ResponseTrailers.class
+#6 3.338 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/trailers/ResponseTrailers.java
+#6 3.338 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/util/CookieFilter.class
+#6 3.338 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/util/CookieFilter.java
+#6 3.338 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/util/HTMLFilter.class
+#6 3.338 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/util/HTMLFilter.java
+#6 3.338 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/validators/DebugValidator.class
+#6 3.338 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/validators/DebugValidator.java
+#6 3.338 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/ExamplesConfig.class
+#6 3.338 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/ExamplesConfig.java
+#6 3.338 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/chat/ChatAnnotation.class
+#6 3.338 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/chat/ChatAnnotation.java
+#6 3.338 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/drawboard/Client$1.class
+#6 3.338 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/drawboard/Client.class
+#6 3.338 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/drawboard/Client.java
+#6 3.338 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/drawboard/DrawMessage$ParseException.class
+#6 3.338 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/drawboard/DrawMessage.class
+#6 3.338 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/drawboard/DrawMessage.java
+#6 3.338 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/drawboard/DrawboardContextListener.class
+#6 3.338 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/drawboard/DrawboardContextListener.java
+#6 3.338 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/drawboard/DrawboardEndpoint$1.class
+#6 3.338 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/drawboard/DrawboardEndpoint$2.class
+#6 3.338 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/drawboard/DrawboardEndpoint$3$1.class
+#6 3.338 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/drawboard/DrawboardEndpoint$3.class
+#6 3.338 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/drawboard/DrawboardEndpoint.class
+#6 3.338 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/drawboard/DrawboardEndpoint.java
+#6 3.338 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/drawboard/Room$1$1.class
+#6 3.338 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/drawboard/Room$1.class
+#6 3.338 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/drawboard/Room$2.class
+#6 3.338 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/drawboard/Room$MessageType.class
+#6 3.338 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/drawboard/Room$Player.class
+#6 3.338 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/drawboard/Room.class
+#6 3.338 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/drawboard/Room.java
+#6 3.338 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/drawboard/wsmessages/AbstractWebsocketMessage.class
+#6 3.338 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/drawboard/wsmessages/AbstractWebsocketMessage.java
+#6 3.339 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/drawboard/wsmessages/BinaryWebsocketMessage.class
+#6 3.339 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/drawboard/wsmessages/BinaryWebsocketMessage.java
+#6 3.339 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/drawboard/wsmessages/CloseWebsocketMessage.class
+#6 3.339 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/drawboard/wsmessages/CloseWebsocketMessage.java
+#6 3.339 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/drawboard/wsmessages/StringWebsocketMessage.class
+#6 3.339 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/drawboard/wsmessages/StringWebsocketMessage.java
+#6 3.339 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/echo/EchoAnnotation.class
+#6 3.339 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/echo/EchoAnnotation.java
+#6 3.339 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/echo/EchoAsyncAnnotation$CompletedFuture.class
+#6 3.339 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/echo/EchoAsyncAnnotation.class
+#6 3.339 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/echo/EchoAsyncAnnotation.java
+#6 3.339 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/echo/EchoEndpoint$EchoMessageHandlerBinary.class
+#6 3.339 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/echo/EchoEndpoint$EchoMessageHandlerText.class
+#6 3.339 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/echo/EchoEndpoint.class
+#6 3.339 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/echo/EchoEndpoint.java
+#6 3.339 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/echo/EchoStreamAnnotation.class
+#6 3.339 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/echo/EchoStreamAnnotation.java
+#6 3.339 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/echo/servers.json
+#6 3.339 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/snake/Direction.class
+#6 3.339 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/snake/Direction.java
+#6 3.339 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/snake/Location$1.class
+#6 3.339 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/snake/Location.class
+#6 3.339 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/snake/Location.java
+#6 3.339 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/snake/Snake.class
+#6 3.339 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/snake/Snake.java
+#6 3.339 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/snake/SnakeAnnotation.class
+#6 3.339 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/snake/SnakeAnnotation.java
+#6 3.339 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/snake/SnakeTimer$1.class
+#6 3.339 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/snake/SnakeTimer.class
+#6 3.339 apache-tomcat-10.1.24/webapps/examples/WEB-INF/classes/websocket/snake/SnakeTimer.java
+#6 3.339 apache-tomcat-10.1.24/webapps/examples/WEB-INF/jsp/403.jsp
+#6 3.339 apache-tomcat-10.1.24/webapps/examples/WEB-INF/jsp/403.jsp.html
+#6 3.339 apache-tomcat-10.1.24/webapps/examples/WEB-INF/jsp/debug-taglib.tld
+#6 3.339 apache-tomcat-10.1.24/webapps/examples/WEB-INF/jsp/example-taglib.tld
+#6 3.341 apache-tomcat-10.1.24/webapps/examples/WEB-INF/jsp/jsp2-example-taglib.tld
+#6 3.341 apache-tomcat-10.1.24/webapps/examples/WEB-INF/lib/taglibs-standard-impl-1.2.5-migrated-0.0.1.jar
+#6 3.341 apache-tomcat-10.1.24/webapps/examples/WEB-INF/lib/taglibs-standard-spec-1.2.5-migrated-0.0.1.jar
+#6 3.341 apache-tomcat-10.1.24/webapps/examples/WEB-INF/tags/displayProducts.tag
+#6 3.341 apache-tomcat-10.1.24/webapps/examples/WEB-INF/tags/helloWorld.tag
+#6 3.341 apache-tomcat-10.1.24/webapps/examples/WEB-INF/tags/panel.tag
+#6 3.341 apache-tomcat-10.1.24/webapps/examples/WEB-INF/web.xml
+#6 3.341 apache-tomcat-10.1.24/webapps/examples/index.html
+#6 3.341 apache-tomcat-10.1.24/webapps/examples/jsp/async/async1.jsp
+#6 3.341 apache-tomcat-10.1.24/webapps/examples/jsp/async/async1.jsp.html
+#6 3.341 apache-tomcat-10.1.24/webapps/examples/jsp/async/async3.jsp
+#6 3.341 apache-tomcat-10.1.24/webapps/examples/jsp/async/async3.jsp.html
+#6 3.341 apache-tomcat-10.1.24/webapps/examples/jsp/async/index.jsp
+#6 3.341 apache-tomcat-10.1.24/webapps/examples/jsp/async/index.jsp.html
+#6 3.341 apache-tomcat-10.1.24/webapps/examples/jsp/cal/Entries.java.html
+#6 3.341 apache-tomcat-10.1.24/webapps/examples/jsp/cal/Entry.java.html
+#6 3.342 apache-tomcat-10.1.24/webapps/examples/jsp/cal/JspCalendar.java.html
+#6 3.342 apache-tomcat-10.1.24/webapps/examples/jsp/cal/TableBean.java.html
+#6 3.342 apache-tomcat-10.1.24/webapps/examples/jsp/cal/cal1.jsp
+#6 3.342 apache-tomcat-10.1.24/webapps/examples/jsp/cal/cal1.jsp.html
+#6 3.342 apache-tomcat-10.1.24/webapps/examples/jsp/cal/cal2.jsp
+#6 3.342 apache-tomcat-10.1.24/webapps/examples/jsp/cal/cal2.jsp.html
+#6 3.342 apache-tomcat-10.1.24/webapps/examples/jsp/cal/calendar.html
+#6 3.342 apache-tomcat-10.1.24/webapps/examples/jsp/cal/login.html
+#6 3.342 apache-tomcat-10.1.24/webapps/examples/jsp/checkbox/CheckTest.html
+#6 3.342 apache-tomcat-10.1.24/webapps/examples/jsp/checkbox/check.html
+#6 3.342 apache-tomcat-10.1.24/webapps/examples/jsp/checkbox/checkresult.jsp
+#6 3.342 apache-tomcat-10.1.24/webapps/examples/jsp/checkbox/checkresult.jsp.html
+#6 3.342 apache-tomcat-10.1.24/webapps/examples/jsp/checkbox/cresult.html
+#6 3.342 apache-tomcat-10.1.24/webapps/examples/jsp/colors/ColorGameBean.html
+#6 3.342 apache-tomcat-10.1.24/webapps/examples/jsp/colors/clr.html
+#6 3.342 apache-tomcat-10.1.24/webapps/examples/jsp/colors/colors.html
+#6 3.342 apache-tomcat-10.1.24/webapps/examples/jsp/colors/colrs.jsp
+#6 3.343 apache-tomcat-10.1.24/webapps/examples/jsp/colors/colrs.jsp.html
+#6 3.343 apache-tomcat-10.1.24/webapps/examples/jsp/dates/date.html
+#6 3.343 apache-tomcat-10.1.24/webapps/examples/jsp/dates/date.jsp
+#6 3.343 apache-tomcat-10.1.24/webapps/examples/jsp/dates/date.jsp.html
+#6 3.343 apache-tomcat-10.1.24/webapps/examples/jsp/error/er.html
+#6 3.343 apache-tomcat-10.1.24/webapps/examples/jsp/error/err.jsp
+#6 3.343 apache-tomcat-10.1.24/webapps/examples/jsp/error/err.jsp.html
+#6 3.343 apache-tomcat-10.1.24/webapps/examples/jsp/error/error.html
+#6 3.343 apache-tomcat-10.1.24/webapps/examples/jsp/error/errorpge.jsp
+#6 3.343 apache-tomcat-10.1.24/webapps/examples/jsp/error/errorpge.jsp.html
+#6 3.343 apache-tomcat-10.1.24/webapps/examples/jsp/forward/forward.jsp
+#6 3.343 apache-tomcat-10.1.24/webapps/examples/jsp/forward/forward.jsp.html
+#6 3.343 apache-tomcat-10.1.24/webapps/examples/jsp/forward/fwd.html
+#6 3.343 apache-tomcat-10.1.24/webapps/examples/jsp/forward/one.jsp
+#6 3.343 apache-tomcat-10.1.24/webapps/examples/jsp/forward/one.jsp.html
+#6 3.343 apache-tomcat-10.1.24/webapps/examples/jsp/forward/two.html
+#6 3.343 apache-tomcat-10.1.24/webapps/examples/jsp/images/code.gif
+#6 3.343 apache-tomcat-10.1.24/webapps/examples/jsp/images/execute.gif
+#6 3.343 apache-tomcat-10.1.24/webapps/examples/jsp/images/return.gif
+#6 3.343 apache-tomcat-10.1.24/webapps/examples/jsp/include/foo.html
+#6 3.343 apache-tomcat-10.1.24/webapps/examples/jsp/include/foo.jsp
+#6 3.343 apache-tomcat-10.1.24/webapps/examples/jsp/include/foo.jsp.html
+#6 3.343 apache-tomcat-10.1.24/webapps/examples/jsp/include/inc.html
+#6 3.343 apache-tomcat-10.1.24/webapps/examples/jsp/include/include.jsp
+#6 3.343 apache-tomcat-10.1.24/webapps/examples/jsp/include/include.jsp.html
+#6 3.343 apache-tomcat-10.1.24/webapps/examples/jsp/index.html
+#6 3.343 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/el/Functions.java.html
+#6 3.343 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/el/ValuesBean.java.html
+#6 3.343 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/el/ValuesTag.java.html
+#6 3.343 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/el/basic-arithmetic.html
+#6 3.343 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/el/basic-arithmetic.jsp
+#6 3.343 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/el/basic-arithmetic.jsp.html
+#6 3.343 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/el/basic-comparisons.html
+#6 3.343 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/el/basic-comparisons.jsp
+#6 3.343 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/el/basic-comparisons.jsp.html
+#6 3.343 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/el/composite.html
+#6 3.343 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/el/composite.jsp
+#6 3.343 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/el/composite.jsp.html
+#6 3.343 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/el/functions.html
+#6 3.343 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/el/functions.jsp
+#6 3.343 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/el/functions.jsp.html
+#6 3.343 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/el/implicit-objects.html
+#6 3.343 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/el/implicit-objects.jsp
+#6 3.343 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/el/implicit-objects.jsp.html
+#6 3.343 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/jspattribute/FooBean.java.html
+#6 3.343 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/jspattribute/HelloWorldSimpleTag.java.html
+#6 3.343 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/jspattribute/ShuffleSimpleTag.java.html
+#6 3.344 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/jspattribute/TileSimpleTag.java.html
+#6 3.344 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/jspattribute/jspattribute.html
+#6 3.344 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/jspattribute/jspattribute.jsp
+#6 3.344 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/jspattribute/jspattribute.jsp.html
+#6 3.344 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/jspattribute/shuffle.html
+#6 3.344 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/jspattribute/shuffle.jsp
+#6 3.344 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/jspattribute/shuffle.jsp.html
+#6 3.344 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/jspx/basic.html
+#6 3.344 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/jspx/basic.jspx
+#6 3.344 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/jspx/basic.jspx.html
+#6 3.344 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/jspx/svgexample.html
+#6 3.344 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/jspx/textRotate.html
+#6 3.344 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/jspx/textRotate.jpg
+#6 3.344 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/jspx/textRotate.jspx
+#6 3.344 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/jspx/textRotate.jspx.html
+#6 3.345 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/misc/EchoAttributesTag.java.html
+#6 3.345 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/misc/coda.jspf
+#6 3.345 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/misc/coda.jspf.html
+#6 3.345 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/misc/config.html
+#6 3.345 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/misc/config.jsp
+#6 3.345 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/misc/config.jsp.html
+#6 3.345 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/misc/dynamicattrs.html
+#6 3.345 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/misc/dynamicattrs.jsp
+#6 3.345 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/misc/dynamicattrs.jsp.html
+#6 3.345 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/misc/prelude.jspf
+#6 3.345 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/misc/prelude.jspf.html
+#6 3.345 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/simpletag/BookBean.java.html
+#6 3.345 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/simpletag/FindBookSimpleTag.java.html
+#6 3.345 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/simpletag/Functions.java.html
+#6 3.345 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/simpletag/HelloWorldSimpleTag.java.html
+#6 3.345 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/simpletag/RepeatSimpleTag.java.html
+#6 3.345 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/simpletag/book.html
+#6 3.345 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/simpletag/book.jsp
+#6 3.345 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/simpletag/book.jsp.html
+#6 3.345 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/simpletag/hello.html
+#6 3.345 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/simpletag/hello.jsp
+#6 3.345 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/simpletag/hello.jsp.html
+#6 3.345 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/simpletag/repeat.html
+#6 3.345 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/simpletag/repeat.jsp
+#6 3.345 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/simpletag/repeat.jsp.html
+#6 3.345 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/tagfiles/displayProducts.tag.html
+#6 3.345 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/tagfiles/hello.html
+#6 3.345 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/tagfiles/hello.jsp
+#6 3.345 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/tagfiles/hello.jsp.html
+#6 3.345 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/tagfiles/helloWorld.tag.html
+#6 3.346 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/tagfiles/panel.html
+#6 3.346 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/tagfiles/panel.jsp
+#6 3.346 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/tagfiles/panel.jsp.html
+#6 3.346 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/tagfiles/panel.tag.html
+#6 3.346 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/tagfiles/products.html
+#6 3.346 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/tagfiles/products.jsp
+#6 3.346 apache-tomcat-10.1.24/webapps/examples/jsp/jsp2/tagfiles/products.jsp.html
+#6 3.346 apache-tomcat-10.1.24/webapps/examples/jsp/jsptoserv/ServletToJsp.java.html
+#6 3.346 apache-tomcat-10.1.24/webapps/examples/jsp/jsptoserv/hello.jsp
+#6 3.346 apache-tomcat-10.1.24/webapps/examples/jsp/jsptoserv/hello.jsp.html
+#6 3.346 apache-tomcat-10.1.24/webapps/examples/jsp/jsptoserv/jsptoservlet.jsp
+#6 3.346 apache-tomcat-10.1.24/webapps/examples/jsp/jsptoserv/jsptoservlet.jsp.html
+#6 3.346 apache-tomcat-10.1.24/webapps/examples/jsp/jsptoserv/jts.html
+#6 3.346 apache-tomcat-10.1.24/webapps/examples/jsp/num/numguess.html
+#6 3.346 apache-tomcat-10.1.24/webapps/examples/jsp/num/numguess.jsp
+#6 3.347 apache-tomcat-10.1.24/webapps/examples/jsp/num/numguess.jsp.html
+#6 3.347 apache-tomcat-10.1.24/webapps/examples/jsp/security/protected/error.jsp
+#6 3.347 apache-tomcat-10.1.24/webapps/examples/jsp/security/protected/error.jsp.html
+#6 3.347 apache-tomcat-10.1.24/webapps/examples/jsp/security/protected/index.jsp
+#6 3.347 apache-tomcat-10.1.24/webapps/examples/jsp/security/protected/index.jsp.html
+#6 3.347 apache-tomcat-10.1.24/webapps/examples/jsp/security/protected/login.jsp
+#6 3.347 apache-tomcat-10.1.24/webapps/examples/jsp/security/protected/login.jsp.html
+#6 3.347 apache-tomcat-10.1.24/webapps/examples/jsp/sessions/DummyCart.html
+#6 3.347 apache-tomcat-10.1.24/webapps/examples/jsp/sessions/carts.html
+#6 3.347 apache-tomcat-10.1.24/webapps/examples/jsp/sessions/carts.jsp
+#6 3.347 apache-tomcat-10.1.24/webapps/examples/jsp/sessions/carts.jsp.html
+#6 3.347 apache-tomcat-10.1.24/webapps/examples/jsp/sessions/crt.html
+#6 3.347 apache-tomcat-10.1.24/webapps/examples/jsp/simpletag/foo.html
+#6 3.347 apache-tomcat-10.1.24/webapps/examples/jsp/simpletag/foo.jsp
+#6 3.347 apache-tomcat-10.1.24/webapps/examples/jsp/simpletag/foo.jsp.html
+#6 3.347 apache-tomcat-10.1.24/webapps/examples/jsp/snp/snoop.html
+#6 3.347 apache-tomcat-10.1.24/webapps/examples/jsp/snp/snoop.jsp
+#6 3.347 apache-tomcat-10.1.24/webapps/examples/jsp/snp/snoop.jsp.html
+#6 3.347 apache-tomcat-10.1.24/webapps/examples/jsp/tagplugin/choose.html
+#6 3.347 apache-tomcat-10.1.24/webapps/examples/jsp/tagplugin/choose.jsp
+#6 3.347 apache-tomcat-10.1.24/webapps/examples/jsp/tagplugin/choose.jsp.html
+#6 3.347 apache-tomcat-10.1.24/webapps/examples/jsp/tagplugin/foreach.html
+#6 3.347 apache-tomcat-10.1.24/webapps/examples/jsp/tagplugin/foreach.jsp
+#6 3.347 apache-tomcat-10.1.24/webapps/examples/jsp/tagplugin/foreach.jsp.html
+#6 3.347 apache-tomcat-10.1.24/webapps/examples/jsp/tagplugin/howto.html
+#6 3.347 apache-tomcat-10.1.24/webapps/examples/jsp/tagplugin/if.html
+#6 3.347 apache-tomcat-10.1.24/webapps/examples/jsp/tagplugin/if.jsp
+#6 3.347 apache-tomcat-10.1.24/webapps/examples/jsp/tagplugin/if.jsp.html
+#6 3.347 apache-tomcat-10.1.24/webapps/examples/jsp/tagplugin/notes.html
+#6 3.347 apache-tomcat-10.1.24/webapps/examples/jsp/xml/xml.html
+#6 3.347 apache-tomcat-10.1.24/webapps/examples/jsp/xml/xml.jsp
+#6 3.347 apache-tomcat-10.1.24/webapps/examples/jsp/xml/xml.jsp.html
+#6 3.347 apache-tomcat-10.1.24/webapps/examples/servlets/cookies.html
+#6 3.348 apache-tomcat-10.1.24/webapps/examples/servlets/helloworld.html
+#6 3.348 apache-tomcat-10.1.24/webapps/examples/servlets/images/code.gif
+#6 3.348 apache-tomcat-10.1.24/webapps/examples/servlets/images/execute.gif
+#6 3.348 apache-tomcat-10.1.24/webapps/examples/servlets/images/return.gif
+#6 3.348 apache-tomcat-10.1.24/webapps/examples/servlets/index.html
+#6 3.348 apache-tomcat-10.1.24/webapps/examples/servlets/nonblocking/bytecounter.html
+#6 3.348 apache-tomcat-10.1.24/webapps/examples/servlets/reqheaders.html
+#6 3.348 apache-tomcat-10.1.24/webapps/examples/servlets/reqinfo.html
+#6 3.348 apache-tomcat-10.1.24/webapps/examples/servlets/reqparams.html
+#6 3.348 apache-tomcat-10.1.24/webapps/examples/servlets/sessions.html
+#6 3.348 apache-tomcat-10.1.24/webapps/examples/websocket/chat.xhtml
+#6 3.348 apache-tomcat-10.1.24/webapps/examples/websocket/drawboard.xhtml
+#6 3.348 apache-tomcat-10.1.24/webapps/examples/websocket/echo.xhtml
+#6 3.348 apache-tomcat-10.1.24/webapps/examples/websocket/index.xhtml
+#6 3.348 apache-tomcat-10.1.24/webapps/examples/websocket/snake.xhtml
+#6 3.348 apache-tomcat-10.1.24/webapps/host-manager/META-INF/context.xml
+#6 3.348 apache-tomcat-10.1.24/webapps/host-manager/WEB-INF/jsp/401.jsp
+#6 3.349 apache-tomcat-10.1.24/webapps/host-manager/WEB-INF/jsp/403.jsp
+#6 3.349 apache-tomcat-10.1.24/webapps/host-manager/WEB-INF/jsp/404.jsp
+#6 3.349 apache-tomcat-10.1.24/webapps/host-manager/WEB-INF/manager.xml
+#6 3.349 apache-tomcat-10.1.24/webapps/host-manager/WEB-INF/web.xml
+#6 3.349 apache-tomcat-10.1.24/webapps/host-manager/css/manager.css
+#6 3.349 apache-tomcat-10.1.24/webapps/host-manager/images/asf-logo.svg
+#6 3.349 apache-tomcat-10.1.24/webapps/host-manager/images/tomcat.svg
+#6 3.349 apache-tomcat-10.1.24/webapps/host-manager/index.jsp
+#6 3.349 apache-tomcat-10.1.24/webapps/manager/META-INF/context.xml
+#6 3.349 apache-tomcat-10.1.24/webapps/manager/WEB-INF/jsp/401.jsp
+#6 3.349 apache-tomcat-10.1.24/webapps/manager/WEB-INF/jsp/403.jsp
+#6 3.349 apache-tomcat-10.1.24/webapps/manager/WEB-INF/jsp/404.jsp
+#6 3.349 apache-tomcat-10.1.24/webapps/manager/WEB-INF/jsp/connectorCerts.jsp
+#6 3.349 apache-tomcat-10.1.24/webapps/manager/WEB-INF/jsp/connectorCiphers.jsp
+#6 3.349 apache-tomcat-10.1.24/webapps/manager/WEB-INF/jsp/connectorTrustedCerts.jsp
+#6 3.349 apache-tomcat-10.1.24/webapps/manager/WEB-INF/jsp/sessionDetail.jsp
+#6 3.349 apache-tomcat-10.1.24/webapps/manager/WEB-INF/jsp/sessionsList.jsp
+#6 3.350 apache-tomcat-10.1.24/webapps/manager/WEB-INF/web.xml
+#6 3.350 apache-tomcat-10.1.24/webapps/manager/css/manager.css
+#6 3.350 apache-tomcat-10.1.24/webapps/manager/images/asf-logo.svg
+#6 3.350 apache-tomcat-10.1.24/webapps/manager/images/tomcat.svg
+#6 3.350 apache-tomcat-10.1.24/webapps/manager/index.jsp
+#6 3.350 apache-tomcat-10.1.24/webapps/manager/status.xsd
+#6 3.350 apache-tomcat-10.1.24/webapps/manager/xform.xsl
+#6 3.350 apache-tomcat-10.1.24/bin/catalina.sh
+#6 3.350 apache-tomcat-10.1.24/bin/ciphers.sh
+#6 3.350 apache-tomcat-10.1.24/bin/configtest.sh
+#6 3.350 apache-tomcat-10.1.24/bin/daemon.sh
+#6 3.350 apache-tomcat-10.1.24/bin/digest.sh
+#6 3.350 apache-tomcat-10.1.24/bin/makebase.sh
+#6 3.350 apache-tomcat-10.1.24/bin/migrate.sh
+#6 3.350 apache-tomcat-10.1.24/bin/setclasspath.sh
+#6 3.350 apache-tomcat-10.1.24/bin/shutdown.sh
+#6 3.350 apache-tomcat-10.1.24/bin/startup.sh
+#6 3.350 apache-tomcat-10.1.24/bin/tool-wrapper.sh
+#6 3.350 apache-tomcat-10.1.24/bin/version.sh
+#6 DONE 3.4s
+
+#7 [3/3] COPY build/libs/CI-CD-Jenkins-0.0.1-SNAPSHOT.war /opt/tomcat/webapps/app.war
 #7 DONE 0.1s
 
 #8 exporting to image
 #8 exporting layers 0.1s done
-#8 writing image sha256:d4590d49f619b7cea0a1b789e022c23163c795cb14f74114d78db7f7eaad9986 done
+#8 writing image sha256:a7a58bcc59a914b285401f5a66ef5b80a04b2ea42a41bdd7bbd60fb748691860 done
 #8 naming to docker.io/library/application done
 #8 DONE 0.1s
-e7637b2ead6b1d8c3b12e097dc48df7360272d94298f9c28481e6eed8ee570d8
+58fcb9cabf30cacd4225708c872cfdb7dc716a062de662d8908deaeb42488b4a
+
 Finished: SUCCESS
